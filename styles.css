@@ -821,6 +821,11 @@ footer p {
     padding: 0 18px;
   }
 
+  .info__gridValue span {
+    top: 22px;
+    left: 0px;
+  }
+
   .info {
     padding: 0 20px;
   }
