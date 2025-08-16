@@ -158,7 +158,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // --- Код для мобильной карусели (.carousel) ---
-  const carousel = document.querySelector(".carousel");
   const carouselSlides = document.querySelector(".carousel__slides");
   const prevButton1 = document.querySelector(".carousel__button--prev");
   const nextButton1 = document.querySelector(".carousel__button--next");
