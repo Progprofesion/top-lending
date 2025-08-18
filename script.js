@@ -75,7 +75,9 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function updateIndicator() {
-    const displayIndex = (currentPosition % totalItems) + visibleItems;
+    let displayIndex = (currentPosition + visibleItems) % totalItems;
+    if (displayIndex === 0) displayIndex = totalItems;
+
     indicator.innerHTML = `${displayIndex}<span>/${totalItems}<span/>`;
   }
 
@@ -247,7 +249,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Debounce для ресайза (чтобы избежать слишком частых вызовов)
+  // Debounce для ресайза
   let resizeTimeout;
   function debouncedCheckMobileCarousel() {
     clearTimeout(resizeTimeout);
@@ -274,7 +276,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     carouselSlides.style.transform = `translateX(-${index * 100}%)`;
 
-    // Обновляем активную точку
     document.querySelectorAll(".carousel__dot").forEach((dot, i) => {
       dot.classList.toggle("active", i === index);
     });
@@ -295,6 +296,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
   checkMobileCarousel();
 
-  // Обработчик ресайза с debounce
   window.addEventListener("resize", debouncedCheckMobileCarousel);
 });
